@@ -515,7 +515,7 @@
    <div id="exp" class="md">
 
 ### Setup
-
+<div style="text-align: right"> 
 This is a toy environment called **Gridworld** that is often used as a toy model in the Reinforcement Learning literature. In this particular case:
 
 - **State space**: GridWorld has 10x10 = 100 distinct states. The start state is the top left cell. The gray cells are walls and cannot be moved to.
@@ -548,7 +548,7 @@ With our goal of finding the optimal policy \\(\pi^\*(s,a)\\) that gets the most
 - The **Policy Evaluation (one sweep)** button turns the Bellman equation into a synchronous update and performs a single step of Value Function estimation. Intuitively, this update is diffusing the raw Rewards at each state to other nearby states through 1. the the dynamics of the environment and 2. the current policy.
 - The **Policy Update** button iterates over all states and updates the policy at each state to take the action that leads to the state with the best Value (integrating over the next state distribution of the environment for each action).
 - The **Value Iteration** button starts a timer that presses the two buttons in turns. In particular, note that Value Iteration doesn't wait for the Value function to be fully estimates, but only a single synchronous sweep of Bellman update is carried out. In full policy iteration there would be many sweeps (until convergence) of backups before the policy is updated.
-
+</div>
 
    </div>
    </div>
