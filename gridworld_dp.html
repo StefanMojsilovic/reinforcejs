@@ -515,20 +515,24 @@
    <div id="exp" class="md">
 
 ### Setup
-<div style="text-align: right"> 
+<p align="justify">
 This is a toy environment called **Gridworld** that is often used as a toy model in the Reinforcement Learning literature. In this particular case:
 
+<p align="justify">
 - **State space**: GridWorld has 10x10 = 100 distinct states. The start state is the top left cell. The gray cells are walls and cannot be moved to.
 - **Actions**: The agent can choose from up to 4 actions to move around. In this example 
 - **Environment Dynamics**: GridWorld is deterministic, leading to the same new state given each state and action
 - **Rewards**: The agent receives +1 reward when it is in the center square (the one that shows R 1.0), and -1 reward in a few states (R -1.0 is shown for these). The state with +1.0 reward is the goal state and resets the agent back to start.
 
+<p align="justify">
 In other words, this is a deterministic, finite Markov Decision Process (MDP) and as always the goal is to find an agent policy (shown here by arrows) that maximizes the future discounted reward. My favorite part is letting Value iteration converge, then change the cell rewards and watch the policy adjust.
 
+<p align="justify">
 **Interface**. The color of the cells (initially all white) shows the current estimate of the Value (discounted reward) of that state, with the current policy. Note that you can select any cell and change its reward with the *Cell reward* slider.
 
 ### Dynamic Programming
 
+<p align="justify">
 An interested reader should refer to **Richard Sutton's Free Online Book on Reinforcement Learning**, in this particular case [Chapter 4](http://webdocs.cs.ualberta.ca/~sutton/book/ebook/node40.html). Briefly, an agent interacts with the environment based on its policy \\(\pi(a \mid s)\\). This is a function from states \\(s\\) to an action \\(a\\), or more generally to a distribution over the possible actions. After every action, the agent also receives a reward \\(r\\) from the environment. The interaction between the agent and the environment hence takes the form \\(s\_t, a\_t, r\_t, s\_{t+1}, a\_{t+1}, r\_{t+1}, s\_{t+2}, \ldots \\), indexed by t (time) and our goal is to find the policy \\(\pi^\*\\) that maximizes the amount of reward over time. In the DP approach, it is helpful to define a **Value function** \\(V^\pi(s)\\) that gives the expected reward when starting from the state \\(s\\) and then interacting with the environment according to \\(\pi\\):
 
 $$
@@ -548,7 +552,7 @@ With our goal of finding the optimal policy \\(\pi^\*(s,a)\\) that gets the most
 - The **Policy Evaluation (one sweep)** button turns the Bellman equation into a synchronous update and performs a single step of Value Function estimation. Intuitively, this update is diffusing the raw Rewards at each state to other nearby states through 1. the the dynamics of the environment and 2. the current policy.
 - The **Policy Update** button iterates over all states and updates the policy at each state to take the action that leads to the state with the best Value (integrating over the next state distribution of the environment for each action).
 - The **Value Iteration** button starts a timer that presses the two buttons in turns. In particular, note that Value Iteration doesn't wait for the Value function to be fully estimates, but only a single synchronous sweep of Bellman update is carried out. In full policy iteration there would be many sweeps (until convergence) of backups before the policy is updated.
-</div>
+
 
    </div>
    </div>
