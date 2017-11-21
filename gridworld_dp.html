@@ -292,6 +292,12 @@
           if(rv !== 0) {
             tr.text('R ' + rv.toFixed(1))
           }
+	  if(s == env.goalstate) {
+            tr.text('Goal R ' + rv.toFixed(1))
+          }
+          if(s == env.startstate) {
+            tr.text('Start R ' + rv.toFixed(1))
+          }
 
           // skip rest for cliff
           if(env.T[s] === 1) continue; 
@@ -436,7 +442,7 @@
 	  
       $("#rewardslider").slider({
         min: -1,
-        max: 1.1,
+        max: 0.6,
         value: 0,
         step: 0.1,
         slide: function(event, ui) {
